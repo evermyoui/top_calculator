@@ -4,29 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TOP Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Zilla+Slab:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div>
-        <h1>TOP Calculator</h1>
-        <div class="container">
-            <button class="buttons">0</button>
-            <button class="buttons">1</button>
-            <button class="buttons">2</button>
-            <button class="buttons">3</button>
-            <button class="buttons">4</button>
-            <button class="buttons">5</button>
-            <button class="buttons">6</button>
-            <button class="buttons">7</button>
-            <button class="buttons">8</button>
-            <button class="buttons">9</button>
-            <button class="clear">CLEAR</button>
-            <button class="operator">+</button>
-            <button class="operator">-</button>
-            <button class="operator">*</button>
-            <button class="operator">/</button>
-            <button class="equal">=</button>
-            <div class="display"></div>
+    <div class="calc-grid">
+        <div class="output">
+            <div class="prev-operand">123 +</div>
+            <div class="current-operand">456</div>
         </div>
+        <button id="plus-btn">+</button>
+        <button>DEL</button>
+        <button id="all-clear" class="span-two">AC</button>
+        <button id="minus-btn">-</button>
+        <button>7</button>
+        <button>8</button>
+        <button>9</button>
+        <button id="divide-btn">÷</button>
+        <button>4</button>
+        <button>5</button>
+        <button>6</button>
+        <button id="multiply-btn">x</button>
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+    
+        <button>.</button>
+        <button>0</button>
+        <button class="span-two">=</button>
+
     </div>
     <script src="script.js"></script>
 </body>
