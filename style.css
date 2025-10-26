@@ -21,8 +21,67 @@ body {
     border-radius: 50px;
     outline: none;
     border: none;
-    
+    background-color: rgba(115, 147, 179, 0.75);
+    margin: 2px;
+}
+.calc-grid > button:hover {
+    background-color: rgba(115, 147, 179, 0.9);
 }
 .output{
     grid-column: 1/-1;
+    background-color: rgba(0, 0, 128, .75);
+    border-radius: 30px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    flex-direction: column;
+    word-wrap: break-word;
+    word-break: break-all;
+    padding: 10px;
+}
+.output .prev-operand {
+    color: rgba(255,255,255,0.7);
+    font-weight: bold;
+}
+.output .curr-operand {
+    color: white;
+    font-weight: bolder;
+    font-size: 2rem;
+}
+.span-two {
+    grid-column: span 2;
+}
+
+#all-clear {
+    background-color: rgba(0,0,0,0.75);
+}
+#all-clear:hover {
+    background-color: rgba(0,0,0, 0.9);
+}
+.white {
+    color: white;
+}
+#plus-btn {
+    background-color: rgba(0, 163, 108, 0.75); 
+}
+#plus-btn:hover{
+    background-color: rgba(0, 163, 108, 0.9);
+}
+#minus-btn {
+    background-color: rgba(255, 68, 51, 0.75); 
+}
+#minus-btn:hover{
+    background-color: rgba(255, 68, 51, 0.9);
+}
+#divide-btn {
+    background-color: rgba(0, 150, 255, 0.75); 
+}
+#divide-btn:hover{
+    background-color: rgba(0, 150, 255, 0.9);
+}
+#multiply-btn {
+    background-color: rgba(244, 187, 68, 0.75); 
+}
+#multiply-btn:hover{
+    background-color: rgba(244, 187, 68, 0.9);
 }
