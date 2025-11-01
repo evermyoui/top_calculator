@@ -85,3 +85,11 @@ body {
 #multiply-btn:hover{
     background-color: rgba(244, 187, 68, 0.9);
 }
+
+#github {
+    display: flex;
+    gap: 10px;
+}
+#github a {
+    text-decoration: none;
+}
