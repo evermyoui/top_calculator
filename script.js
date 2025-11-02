@@ -35,13 +35,26 @@ class Calculator {
         this.computation = new Computation();
     }
     clear(){
-        this.currValue = "";
+        this.currValue = "0";
         this.prevValue = "";
         this.operation = undefined;
     }
     appendNumber(number){
+        if (this.currValue === "0" && number === "0") return;
+        if ((this.currValue === "" && number === ".") || (this.currValue === "0" && number === ".")){
+            this.currValue = "0.";
+            return;
+        }
+        if (this.currValue === "0" && number !== "."){
+            this.currValue = number;
+            return;
+        }
+        if (this.displayResult){
+            this.currValue = "";
+            this.displayResult = false;
+        }
         if (number === "." && this.currValue.includes(".")) return;
-        this.currValue = this.currValue.toString() + number.toString();
+        this.currValue += number.toString();
     }
     displayCalc(){
         if (this.operation !== undefined){
@@ -49,7 +62,7 @@ class Calculator {
         }else {
             prevOperand.textContent = this.prevValue;
         }
-        currOperand.textContent = this.currValue;
+        this.currOperand.textContent = this.currValue === "" ? "0" : this.currValue;
     }
     chooseOperation(operation){
         if (this.currValue === "") return;
@@ -88,6 +101,7 @@ class Calculator {
         this.currValue = parseFloat(result.toFixed(6)).toString();
         this.prevValue = "";
         this.operation = undefined;
+        this.displayResult = true;
     }
     delete(){
         if (this.currValue === "") return;
@@ -122,4 +136,42 @@ deleteBtn.addEventListener('click', ()=>{
 equalBtn.addEventListener("click", ()=>{
     calculator.execute();
     calculator.displayCalc();
+});
+
+document.addEventListener("keydown", (e)=>{
+    if(!isNaN(e.key) || e.key === "."){
+        calculator.appendNumber(e.key);
+        calculator.displayCalc();
+        active("data-number", e.key, "numbers");
+    }else if (["+","-","*","/"].includes(e.key)){
+        let op = e.key;
+        if (op === "/") op = "÷";
+        calculator.chooseOperation(op);
+        calculator.displayCalc();
+        switch (op){
+            case "+" : 
+                active("data-operation", "+", "plus");
+                break;
+            case "-" : 
+                active("data-operation", "-", "subtract");
+                break;
+            case "*" : 
+                active("data-operation", "*", "multiply");
+                break;
+            case "÷" : 
+                active("data-operation", "÷", "divide");
+                break;
+        }
+    }
+
 })
+
+function active(selector, number, className){
+    const button = document.querySelector(`[${selector}="${number}"]`);
+    if (button){
+        button.classList.add(`${className}`);
+        setTimeout(() => {
+            button.classList.remove(`${className}`);
+        }, 200);
+    }
+}
