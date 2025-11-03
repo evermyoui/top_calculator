@@ -162,10 +162,17 @@ document.addEventListener("keydown", (e)=>{
                 active("data-operation", "÷", "divide");
                 break;
         }
+    }else if (e.key === "Enter" || e.key === "="){
+        calculator.execute();
+        calculator.displayCalc();
+    }else if (e.key === "Backspace"){
+        calculator.delete();
+        calculator.displayCalc();
+    }else if (e.key === "Escape"){
+        calculator.clear();
+        calculator.displayCalc();
     }
-
 })
-
 function active(selector, number, className){
     const button = document.querySelector(`[${selector}="${number}"]`);
     if (button){
